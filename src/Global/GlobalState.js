@@ -4,7 +4,7 @@ const globalState = () => {
   return (
     <div>
         
-        globalState
+        globalStatee
 
     </div>
   )
