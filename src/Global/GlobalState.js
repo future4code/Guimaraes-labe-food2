@@ -1,13 +1,38 @@
-import React from 'react'
+import axios from 'axios'
+import React, {useEffect, useState} from 'react'
+import { BASE_URL } from '../Constants/BASE_URL'
+import { GlobalStateContext } from './GlobalStateContext'
 
-const globalState = () => {
+const GlobalState = (props) => {
+
+  const [restaurants, setRestaurants] = useState([])
+
+
+  useEffect(()=>{
+    getRestaurants()
+  },[])
+
+  const getRestaurants = async () => {
+    const response = await axios.get(`${BASE_URL}restaurants`,
+    {headers: {
+      // token chumbado
+      auth: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im8yb2xvajJpUnVpaHEwaG80aUFZIiwibmFtZSI6IkNhcm9sIEthenVlIiwiZW1haWwiOiJjYXJvbC5rYXp1ZUBlbWFpbC5jb20iLCJjcGYiOiI0Mzk3NDczNDgwNSIsImhhc0FkZHJlc3MiOnRydWUsImFkZHJlc3MiOiJSLkp1bGlldGEgZGUgTW9yYWVzLCA3NSAtIFZpdG9yaWEgUsOpZ2lhIiwiaWF0IjoxNjUxMTcyNzc5fQ.o0HHdSakboa8xxc29XKjRTa0Jw4IQaLJ5AYF-1NQZFs'
+
+    }})
+    setRestaurants(response.data.restaurants)
+    console.log(response.data.restaurants)
+  }
+
+
+
+  const data = {getRestaurants, restaurants}
+
   return (
-    <div>
-        
-        globalStatee
+    <GlobalStateContext.Provider value={data}>
+        {props.children}
+    </GlobalStateContext.Provider>
+)
 
-    </div>
-  )
 }
 
-export default globalState
+export default GlobalState
