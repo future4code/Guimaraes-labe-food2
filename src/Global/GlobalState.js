@@ -6,7 +6,7 @@ import { GlobalStateContext } from './GlobalStateContext'
 const GlobalState = (props) => {
 
   const [restaurants, setRestaurants] = useState([])
-
+  const [restDetail, setRestDetail] = useState([])
 
   useEffect(()=>{
     getRestaurants()
@@ -23,9 +23,19 @@ const GlobalState = (props) => {
     console.log(response.data.restaurants)
   }
 
+  const getRestDetail = async (id) => {
+    const response = await axios.get(`${BASE_URL}restaurants/${id}`,
+    {headers: {
+      // token chumbado
+      auth: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im8yb2xvajJpUnVpaHEwaG80aUFZIiwibmFtZSI6IkNhcm9sIEthenVlIiwiZW1haWwiOiJjYXJvbC5rYXp1ZUBlbWFpbC5jb20iLCJjcGYiOiI0Mzk3NDczNDgwNSIsImhhc0FkZHJlc3MiOnRydWUsImFkZHJlc3MiOiJSLkp1bGlldGEgZGUgTW9yYWVzLCA3NSAtIFZpdG9yaWEgUsOpZ2lhIiwiaWF0IjoxNjUxMTcyNzc5fQ.o0HHdSakboa8xxc29XKjRTa0Jw4IQaLJ5AYF-1NQZFs'
+
+    }})
+    setRestDetail(response.data.restaurant)
+    console.log(response.data.restaurant)
+  }
 
 
-  const data = {getRestaurants, restaurants}
+  const data = {getRestaurants, restaurants,getRestDetail}
 
   return (
     <GlobalStateContext.Provider value={data}>

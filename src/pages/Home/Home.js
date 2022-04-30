@@ -3,16 +3,17 @@ import { GlobalStateContext } from "../../Global/GlobalStateContext";
 
 export const Home = () => {
 
-    const {restaurants} = useContext(GlobalStateContext)
+    const {restaurants,getRestDetail} = useContext(GlobalStateContext)
 
 
 
     return(
         <div>
-            {restaurants.map((rest, index) => {
+            {restaurants.map((rest) => {
                 return(
-                    <div key={rest.name}>
-                        <p>{rest.name}</p>
+                    <div key={rest.id}>
+                        <p> {rest.name}</p>
+                        <button onClick={() => getRestDetail(rest.id)}>detalhes</button>
                     </div>
 
                 )
