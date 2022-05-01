@@ -1,5 +1,5 @@
-import axios from 'axios'
 import React, {useEffect, useState} from 'react'
+import axios from 'axios'
 import { BASE_URL } from '../Constants/BASE_URL'
 import { GlobalStateContext } from './GlobalStateContext'
 
@@ -10,6 +10,7 @@ const GlobalState = (props) => {
 
   useEffect(()=>{
     getRestaurants()
+    getRestDetail()
   },[])
 
   const getRestaurants = async () => {

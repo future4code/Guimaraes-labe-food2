@@ -1,12 +1,13 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import AdressPage from '../Pages/AdressPage/AdressPage'
-import Cart from '../Pages/Cart/Cart'
-import Home from '../Pages/Home/Home'
-import LoginPage from '../Pages/LoginPage/LoginPage'
-import Profile from '../Pages/Profile/Profile'
-import Register from '../Pages/Register/Register'
-import Restaurant from '../Pages/Restaurant/Restaurant'
+import AdressPage from '../pages/AdressPage/AdressPage'
+import Home from '../pages/Home/Home'
+import LoginPage from '../pages/LoginPage/LoginPage'
+import Register from '../pages/Register/Register'
+import Profile from '../pages/Profile/Profile'
+import Restaurant from '../pages/Restaurant/Restaurant'
+import Cart from '../pages/Cart/Cart'
+
 
 
 const Router = () => {
@@ -16,7 +17,7 @@ const Router = () => {
         <Route path='/login' element={<LoginPage />}/>
         <Route path='/register' element={<Register />}/>
         <Route path='/home' element={<Home />} />
-        <Route path='/register/adressO' element={<AdressPage />} />
+        <Route path='/register/adress' element={<AdressPage />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/restaurant' element={<Restaurant />} />
         <Route path='/cart' element={<Cart />} />

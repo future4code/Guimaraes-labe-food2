@@ -1,6 +1,6 @@
 import React from 'react';
 import GlobalState from './Global/GlobalState';
-import Router from './Routes/Routes';
+import Router from './Routes/Routes'
 // import Router from './Routes/Routes';
 // import GlobalState from './Global/GlobalState';
 
