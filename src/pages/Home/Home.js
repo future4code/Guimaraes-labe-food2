@@ -1,5 +1,8 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import CardRestaurant from "../../components/CardRestaurant/CardRestaurant";
 import { GlobalStateContext } from "../../Global/GlobalStateContext";
+import { goToRestaurant } from "../../Routes/coordinator";
 
 export const Home = () => {
 
@@ -7,14 +10,14 @@ export const Home = () => {
 
 
 
+
+
+
     return(
         <div>
             {restaurants.map((rest) => {
                 return(
-                    <div key={rest.id}>
-                        <p> {rest.name}</p>
-                        <button onClick={() => getRestDetail(rest.id)}>detalhes</button>
-                    </div>
+                    <CardRestaurant key={rest.id} rest={rest} getRestDetail={getRestDetail}></CardRestaurant> 
 
                 )
             })}
