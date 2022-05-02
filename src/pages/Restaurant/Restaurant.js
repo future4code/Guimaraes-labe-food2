@@ -10,6 +10,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
 
+
 export const Restaurant = () => {
     const {restDetail,getRestDetail} = useContext(GlobalStateContext)
     const param= useParams();
