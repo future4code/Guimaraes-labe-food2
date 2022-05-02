@@ -18,8 +18,8 @@ export const goToCart = (navigate) => {
     navigate('/cart')
 }
 
-export const goToRestaurant = (navigate) => {
-    navigate('/restaurant')
+export const goToRestaurant = (navigate,id) => {
+    navigate(`/restaurant/${id}`)
 }
 
 export const goToProfile = (navigate) => {

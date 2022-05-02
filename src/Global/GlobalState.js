@@ -39,7 +39,7 @@ const GlobalState = (props) => {
   }
 
 
-  const data = {getRestaurants, restaurants,getRestDetail}
+  const data = {getRestaurants, restaurants,getRestDetail,restDetail}
 
   return (
     <GlobalStateContext.Provider value={data}>
