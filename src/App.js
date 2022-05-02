@@ -1,4 +1,7 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { ThemeProvider as MuiThemeProvider} from '@mui/material';
+import theme from './Constants/theme'
 import GlobalState from './Global/GlobalState';
 import Router from './Routes/Routes';
 // import Router from './Routes/Routes';
@@ -6,12 +9,15 @@ import Router from './Routes/Routes';
 
 const App = () => {
   return (
-    <div>
+    <MuiThemeProvider theme={theme}>
+       <ThemeProvider theme={theme}>
       <GlobalState>
         <Router>
         </Router>
       </GlobalState>
-    </div>
+    </ThemeProvider>
+    </MuiThemeProvider>
+   
     // <GlobalState>
     //   {/* <Router /> */}
     // </GlobalState>
