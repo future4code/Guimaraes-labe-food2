@@ -3,7 +3,7 @@ import { Card } from "./style";
 
 export const CardRestaurant = (props) => {
     return(
-        <Card>
+        <Card onClick={() => props.getRestDetail(props.rest.id)}>
             <img src={props.rest.logoUrl} />
             <div>
                 <div>
@@ -13,7 +13,6 @@ export const CardRestaurant = (props) => {
 
                 <div>
                     <p>Frete {props.rest.shipping}</p>
-                    <button onClick={() => props.getRestDetail(props.rest.id)}>Detalhes</button>
                 </div>
 
             </div>
