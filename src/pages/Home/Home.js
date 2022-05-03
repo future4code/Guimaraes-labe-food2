@@ -1,24 +1,24 @@
 import React, { useContext } from "react";
+import CardRestaurant from "../../components/CardRestaurant/CardRestaurant";
 import { GlobalStateContext } from "../../Global/GlobalStateContext";
+import { HeaderHome, HomeDiv } from "./style";
 
 export const Home = () => {
-
     const {restaurants,getRestDetail} = useContext(GlobalStateContext)
 
 
-
     return(
-        <div>
+        <HomeDiv>
+            <HeaderHome>
+                <p>FutureEats</p>
+            </HeaderHome>
+            <input placeholder="Restaurante"></input>
             {restaurants.map((rest) => {
                 return(
-                    <div key={rest.id}>
-                        <p> {rest.name}</p>
-                        <button onClick={() => getRestDetail(rest.id)}>detalhes</button>
-                    </div>
-
+                    <CardRestaurant key={rest.id} rest={rest} getRestDetail={getRestDetail}></CardRestaurant>
                 )
             })}
-        </div>
+        </HomeDiv>
     )
     
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const MainDiv = styled.div`
-height: 95vh;
+height: 100vh;
 width: 100vw;
 display: flex;
 flex-direction: column;
