@@ -8,20 +8,19 @@ export const CardRestaurant = (props) => {
     const {getRestDetail} = useContext(GlobalStateContext)
     const navigate= useNavigate()
     return(
-        <Card onClick={() => props.getRestDetail(props.rest.id)}>
+        <Card onClick={() => {
+            goToRestaurant(navigate,props.rest.id);
+            getRestDetail(props.rest.id)
+            }}>
             <img src={props.rest.logoUrl} />
             <div>
                 <div>
                     <p>{props.rest.name}</p>
-                    <p>{props.rest.deliveryTime} min</p>
                 </div>
 
                 <div>
-                    <p>Frete {props.rest.shipping}</p>
-                    <button onClick={() => {
-                        goToRestaurant(navigate,props.rest.id);
-                        getRestDetail(props.rest.id)
-                        }}>Detalhes</button>
+                    <p>{(props.rest.deliveryTime - 10)} - {props.rest.deliveryTime} min</p>
+                    <p>Frete R${props.rest.shipping},00</p>
                 </div>
 
             </div>
@@ -30,4 +29,3 @@ export const CardRestaurant = (props) => {
 }
 
 export default CardRestaurant
-
