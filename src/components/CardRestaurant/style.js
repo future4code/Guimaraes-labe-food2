@@ -27,10 +27,10 @@ img {
 
 
 div {
-    margin-left: 8px;
+    margin-left: 0px;
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 296px;
     height: 68px;
 
 
