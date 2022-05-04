@@ -9,9 +9,12 @@ import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CardMedia from '@mui/material/CardMedia';
+import useProtectedPage from "../../Hooks/UseProtectedPage";
+
 
 
 export const Restaurant = () => {
+    useProtectedPage();
     const {restDetail,getRestDetail} = useContext(GlobalStateContext)
     const param= useParams();
     useEffect (()=>{
