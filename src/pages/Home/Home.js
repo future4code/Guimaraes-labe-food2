@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import CardRestaurant from "../../components/CardRestaurant/CardRestaurant";
 import { GlobalStateContext } from "../../Global/GlobalStateContext";
-import { FilterGrid, FooterHome, HeaderHome, HomeDiv } from "./style";
+import { FilterGrid, FooterHome, HeaderHome, HeaderWrapper, HomeDiv } from "./style";
 import useProtectedPage from "../../Hooks/UseProtectedPage";
 import { useNavigate } from "react-router-dom";
 import { goToCart, goToLoginPage, goToProfile } from "../../Routes/coordinator";
@@ -32,52 +32,70 @@ export const Home = () => {
 
     const {restaurants,getRestDetail, setCategory, category} = useContext(GlobalStateContext)
 
-    // const updateCategory = (event) => {
-    //     setCategory(event.target.value)
-    // }
+    const updateCategory = (event) => {
+        console.log(event.target.value)
+    }
 
-    // console.log(category)
+    // const mapeando = restaurants.map((item) => {
+    //    return  item
+    // }).filter(bananinha => bananinha.category === "Árabe")
+
+    // console.log("bananinha",mapeando)
+
+
+
 
     return(
         <HomeDiv>
             <HeaderHome>
                 <p>FutureEats</p>
             </HeaderHome>
-            <input placeholder="Restaurante"></input>
-            <FilterGrid>
-                <p value="Árabe" 
-                // onClick={updateCategory}
-                >Árabe</p>
-                <p value="Asiática" 
-                // onClick={updateCategory}
-                >Asiática</p>
-                <p value="Baiana" 
-                // onClick={updateCategory}
-                >Baiana</p>
-                <p value="Hambúrguer" 
-                // onClick={updateCategory}
-                >Hambúrguer</p>
-                <p value="Carnes" 
-                // onClick={updateCategory}
-                >Carnes</p>
-                <p value="Petiscos" 
-                // onClick={updateCategory}
-                >Petiscos</p>
-                <p value="Italiana" 
-                // onClick={updateCategory}
-                >Italiana</p>
-                <p value="Mexicana" 
-                // onClick={updateCategory}
-                >Mexicana</p>
-                <p value="Sorvetes" 
-                // onClick={updateCategory}
-                >Sorvetes</p>
-            </FilterGrid>
+            <HeaderWrapper>
+                <input placeholder="Restaurante"></input>
+                <FilterGrid>
+                    <p value="bananinha" 
+                    onClick={() => onchange}
+                    >Árabe</p>
+                    <p value="Asiática" 
+                    // onClick={updateCategory}
+                    >Asiática</p>
+                    <p value="Baiana" 
+                    // onClick={updateCategory}
+                    >Baiana</p>
+                    <p value="Hambúrguer" 
+                    // onClick={updateCategory}
+                    >Hambúrguer</p>
+                    <p value="Carnes" 
+                    // onClick={updateCategory}
+                    >Carnes</p>
+                    <p value="Petiscos" 
+                    // onClick={updateCategory}
+                    >Petiscos</p>
+                    <p value="Italiana" 
+                    // onClick={updateCategory}
+                    >Italiana</p>
+                    <p value="Mexicana" 
+                    // onClick={updateCategory}
+                    >Mexicana</p>
+                    <p value="Sorvetes" 
+                    // onClick={updateCategory}
+                    >Sorvetes</p>
+                </FilterGrid>
+            </HeaderWrapper>
             {restaurants.map((rest) => {
                 return(
                     <CardRestaurant key={rest.id} rest={rest} getRestDetail={getRestDetail}></CardRestaurant>
                 )
             })}
+
+            {restaurants.filter(rest => rest.category === "Asiática").map(filteredRest => (
+                <li>
+                    {filteredRest.name}
+                </li>
+            ) )}
+
+
+
             <button onClick={logout}>SAIR DO APP</button>
             <FooterHome>
                 <div>
