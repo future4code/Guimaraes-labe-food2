@@ -4,9 +4,11 @@ export const HomeDiv = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: center;
-width: 375px;
+align-items: center;
+max-width: 375px;
 align-items: center;
 font-family: Roboto;
+letter-spacing: -0.39px;
 
 input {
     width: 326px;
@@ -15,8 +17,10 @@ input {
     font-size: 16px;
     color: #d0d0d0;
     justify-content: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-radius: 8px;
 }
-
 `
 
 export const HeaderHome = styled.div`
@@ -31,5 +35,38 @@ p {
     font-size: 16px;
     font-weight: 400;
 }
+`
+
+export const FooterHome = styled.div`
+display: flex;
+flex-direction: row;
+height: 49px;
+
+div {
+    display: flex;
+    width: 120px;
+    height: 49px;
+    justify-content: center;
+
+    img {
+        width: 27px;
+
+    }
+}
+`
+
+export const FilterGrid = styled.div`
+
+display: grid;
+grid-template-columns: 20px repeat(9);
+grid-template-rows: 1;
+column-gap: 20px;
+grid-auto-flow: column;
+overflow-x: scroll;
+align-content: start;
+width: 328px;
+
+
+
 `
 

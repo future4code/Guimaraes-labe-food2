@@ -5,13 +5,15 @@ export const Card = styled.div`
 display: flex;
 flex-direction: column;
 border: 1px solid gray;
-width: 328px;
+max-width: 328px;
 height: 196px;
 align-items: center;
 cursor: pointer;
 border-radius: 8px;
 margin-top: 8px;
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+letter-spacing: -0.39px;
+font-family: Roboto;
+font-weight: 400;
 
 
 
@@ -43,7 +45,7 @@ div {
             font-size: 16px;
             margin: 0;
             color: #5cb646;
-            font-weight: 600;
+
         }
     }
 

@@ -7,6 +7,7 @@ const GlobalState = (props) => {
 
   const [restaurants, setRestaurants] = useState([])
   const [restDetail, setRestDetail] = useState([])
+  const [category, setCategory] = useState([])
 
   useEffect(()=>{
     getRestaurants()
@@ -39,7 +40,7 @@ const GlobalState = (props) => {
   }
 
 
-  const data = {getRestaurants, restaurants,getRestDetail,restDetail}
+  const data = {getRestaurants, restaurants,getRestDetail,restDetail, setCategory, category}
 
   return (
     <GlobalStateContext.Provider value={data}>

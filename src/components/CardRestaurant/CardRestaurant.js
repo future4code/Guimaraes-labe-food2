@@ -20,7 +20,7 @@ export const CardRestaurant = (props) => {
 
                 <div>
                     <p>{(props.rest.deliveryTime - 10)} - {props.rest.deliveryTime} min</p>
-                    <p>Frete R${props.rest.shipping},00</p>
+                    <p> Frete R${props.rest.shipping},00 </p>
                 </div>
 
             </div>
