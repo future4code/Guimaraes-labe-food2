@@ -1,10 +1,14 @@
-import React from "react";
+import React from "react"
+import { ScreenContainer, LogoImage } from "./style"
+import logo from '../../assets/logo.png'
+import RegisterForm from "./RegisterForm"
 
 export const Register = () => {
     return(
-        <div>
-            Register
-        </div>
+        <ScreenContainer>
+            <LogoImage src={logo}/>
+            <RegisterForm/>
+        </ScreenContainer>
     )
 }
 
