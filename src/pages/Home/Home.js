@@ -30,17 +30,17 @@ export const Home = () => {
         goToProfile(navigate)
     }
 
-    const {restaurants,getRestDetail, setCategory, category} = useContext(GlobalStateContext)
+    const {restaurants,getRestDetail, setValueNames, namesValue, setCategory, category} = useContext(GlobalStateContext)
 
-    const updateCategory = (event) => {
-        console.log(event.target.value)
+    const updateNamesValue = (event) => {
+        setValueNames(event.target.value)
     }
 
-    // const mapeando = restaurants.map((item) => {
-    //    return  item
-    // }).filter(bananinha => bananinha.category === "Árabe")
 
-    // console.log("bananinha",mapeando)
+
+
+
+
 
 
 
@@ -51,10 +51,10 @@ export const Home = () => {
                 <p>FutureEats</p>
             </HeaderHome>
             <HeaderWrapper>
-                <input placeholder="Restaurante"></input>
+                <input placeholder="Restaurante" type='text' onChange={updateNamesValue} value={namesValue}></input>
                 <FilterGrid>
-                    <p value="bananinha" 
-                    onClick={() => onchange}
+                    <p value="Árabe" 
+                    // onClick={updateCategory}
                     >Árabe</p>
                     <p value="Asiática" 
                     // onClick={updateCategory}
@@ -82,20 +82,9 @@ export const Home = () => {
                     >Sorvetes</p>
                 </FilterGrid>
             </HeaderWrapper>
-            {restaurants.map((rest) => {
-                return(
-                    <CardRestaurant key={rest.id} rest={rest} getRestDetail={getRestDetail}></CardRestaurant>
-                )
-            })}
-
-            {restaurants.filter(rest => rest.category === "Asiática").map(filteredRest => (
-                <li>
-                    {filteredRest.name}
-                </li>
-            ) )}
-
-
-
+            {restaurants.filter(item => item.name.toLowerCase().includes(namesValue.toLowerCase())).map(filteredRest => (
+        <CardRestaurant key={filteredRest.id} rest={filteredRest} getRestDetail={getRestDetail}></CardRestaurant>
+    ))}
             <button onClick={logout}>SAIR DO APP</button>
             <FooterHome>
                 <div>
