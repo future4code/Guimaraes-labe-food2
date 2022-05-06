@@ -9,12 +9,27 @@ const GlobalState = (props) => {
   const [restDetail, setRestDetail] = useState([])
   const [namesValue, setValueNames] = useState("")
   const [category, setCategory] = useState("")
+  const [profile, setProfile] = useState([])
 
 
 
   useEffect(()=>{
+    getProfile()
+  },[])
+
+  useEffect(()=>{
     getRestaurants()
   },[])
+
+  
+  const getProfile = async () =>{
+    const res = await axios.get(`${BASE_URL}profile`,
+    {headers: {
+      auth:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikcyb2dFcDFuQnE5bW5TUXNieGI2IiwibmFtZSI6IkxhYmVmb29kMi1HdWltYXJhZXNUZXN0ZSIsImVtYWlsIjoibGFiZWZvb2QyQGd1aW1hcmFlc1Rlc3RlLmNvbS5iciIsImNwZiI6IjIyNS42NzkuNDY4LTk0IiwiaGFzQWRkcmVzcyI6dHJ1ZSwiYWRkcmVzcyI6IkFtYXJvIFNpbGxlcyBkYSBTaWx2YSwgMjEgLSBKZCBFc3RlciIsImlhdCI6MTY1MTY5NzMwOH0.VjlhNvR9EJQ4vtk-sAP2nKcgB9gn_DIXl6i8rGRssnc'
+    }})
+    setProfile(res.data.user)
+    console.log('aquiii', res.data.user)
+  }
 
   const getRestaurants = async () => {
     const response = await axios.get(`${BASE_URL}restaurants`,
@@ -44,7 +59,7 @@ const GlobalState = (props) => {
 
 
 
-  const data = {getRestaurants, restaurants,getRestDetail,restDetail, setValueNames, namesValue, category, setCategory}
+  const data = {getRestaurants, restaurants,getRestDetail,restDetail, setValueNames, namesValue, category, setCategory, setProfile, getProfile, profile}
 
   return (
     <GlobalStateContext.Provider value={data}>
