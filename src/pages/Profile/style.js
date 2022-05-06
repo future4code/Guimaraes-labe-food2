@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-
 export const ProfileDiv = styled.div`
 height: 100vh;
 max-width: 375px;
