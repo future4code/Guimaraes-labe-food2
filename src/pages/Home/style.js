@@ -51,10 +51,11 @@ background-color: white;
 
 export const FooterHome = styled.div`
 display: flex;
+width: 100%;
 flex-direction: row;
 height: 49px;
 background-color: white;
-position: sticky;
+position: fixed;
 bottom: 0;
 
 div {
