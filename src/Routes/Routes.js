@@ -7,7 +7,8 @@ import LoginPage from '../pages/LoginPage/LoginPage'
 import Profile from '../pages/Profile/Profile'
 import Register from '../pages/Register/Register'
 import Restaurant from '../pages/Restaurant/Restaurant'
-
+import ProfileEditAdress from '../pages/ProfileEditAdress/ProfileEditAdress'
+import ProfileEditData from '../pages/ProfileEditData/ProfileEditData'
 
 const Router = () => {
   return (
@@ -18,6 +19,10 @@ const Router = () => {
         <Route exact path='/home' element={<Home />} />
         <Route exact path='/register/adress' element={<AdressPage />} />
         <Route exact path='/profile' element={<Profile />} />
+
+        <Route exact path='/profile/editData' element={<ProfileEditData />} />
+        <Route exact path='/profile/editAdress' element={<ProfileEditAdress />} />
+
         <Route exact path='/restaurant/:id' element={<Restaurant />} />
         <Route exact path='/cart' element={<Cart />} />
       </Routes>

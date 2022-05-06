@@ -36,15 +36,6 @@ export const Home = () => {
         setValueNames(event.target.value)
     }
 
-
-
-
-
-
-
-
-
-
     return(
         <HomeDiv>
             <HeaderHome>

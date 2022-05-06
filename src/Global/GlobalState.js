@@ -17,11 +17,11 @@ const GlobalState = (props) => {
     getProfile()
   },[])
 
-
   useEffect(()=>{
     getRestaurants()
   },[])
 
+  
   const getProfile = async () =>{
     const res = await axios.get(`${BASE_URL}profile`,
     {headers: {
