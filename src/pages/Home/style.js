@@ -24,6 +24,10 @@ input {
 }
 `
 
+export const BtnRmvFltr = styled.button`
+margin-bottom: 50px;
+`
+
 export const HeaderHome = styled.div`
 display: flex;
 width: 100%;
@@ -51,10 +55,11 @@ background-color: white;
 
 export const FooterHome = styled.div`
 display: flex;
+width: 100%;
 flex-direction: row;
 height: 49px;
 background-color: white;
-position: sticky;
+position: fixed;
 bottom: 0;
 
 div {
@@ -81,8 +86,28 @@ overflow-x: scroll;
 align-content: start;
 width: 328px;
 background-color: white;
-
-
+outline: none;
 
 `
 
+export const ButtonCategory = styled.button`
+  border-radius: 0px;
+  color: black;
+  background: white;
+  margin: 5px 0px 15px 0px;
+  text-decoration: none;
+  outline: none;
+  font-size: 16px;
+  border: white;
+
+  :hover {
+  text-decoration: none;
+}
+
+`
+
+export const RestaurantsList = styled.div`
+display: flex;
+flex-direction: column;
+padding-bottom: 50px;
+`
