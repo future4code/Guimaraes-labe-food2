@@ -10,6 +10,7 @@ const GlobalState = (props) => {
   const [namesValue, setValueNames] = useState("")
   const [category, setCategory] = useState("")
   const [profile, setProfile] = useState([])
+  const [change, setChange] = useState(false)
 
 
 
@@ -59,7 +60,7 @@ const GlobalState = (props) => {
 
 
 
-  const data = {getRestaurants, restaurants,getRestDetail,restDetail, setValueNames, namesValue, category, setCategory, setProfile, getProfile, profile}
+  const data = {getRestaurants, restaurants,getRestDetail,restDetail, setValueNames, namesValue, category, setCategory, setProfile, getProfile, profile, change, setChange}
 
   return (
     <GlobalStateContext.Provider value={data}>
