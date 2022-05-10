@@ -64,6 +64,9 @@ const GlobalState = (props) => {
     produto.quantity=quantidade
     setCarrinho([...carrinho,produto])
   }
+  const apagar=()=>{
+    
+  }
   const data = {getRestaurants, restaurants,getRestDetail,
     restDetail, setValueNames, namesValue, category, 
     setCategory, setProfile, getProfile, profile, change, setChange,adicionarCarrinho}
