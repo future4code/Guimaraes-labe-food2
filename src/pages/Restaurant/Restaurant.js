@@ -28,7 +28,7 @@ const style = {
     p: 4,
   };
 
-export const Restaurant = () => {
+export const Restaurant = ( ) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = (id) => setOpen(id);
     const handleClose = () => setOpen(false);
