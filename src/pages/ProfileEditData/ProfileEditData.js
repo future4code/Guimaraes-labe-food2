@@ -8,7 +8,10 @@ import { useNavigate } from 'react-router-dom';
 import homepageGray from '../../img/homepageGray.png'
 import Cart_gray from '../../img/shopping-cart_gray.svg'
 import avatarGreen from '../../img/avatarGreen.png'
+import back from '../../img/back.png'
 import {FooterProfile} from '../Profile/style'
+import { MainDiv, Form, Subtitle, BackImg, TitleDiv   } from '../ProfileEditAdress/style';
+
 
 
 const ProfileEditData = () => {
@@ -41,9 +44,12 @@ const ProfileEditData = () => {
   }
 
   return (
-    <div>
-            <p>Endereço</p>
-      <form onSubmit={handleSubmission}>
+    <MainDiv>
+      <TitleDiv>
+        <BackImg src={back} onClick={() => {goToProfile(navigate)}} />
+        <Subtitle>Dados Pessoais</Subtitle>
+      </TitleDiv>
+      <Form onSubmit={handleSubmission}>
 
       <input
           value={form.name}
@@ -80,12 +86,8 @@ const ProfileEditData = () => {
             SALVAR
           </button>
           
-        </form>
+        </Form>
 
-        <button
-          onClick={() => {goToProfile(navigate)}}>
-            Back
-        </button>
         <FooterProfile>
                 <div>
                     <img src={homepageGray} onClick={() => {goToHome(navigate)}} />
@@ -97,7 +99,7 @@ const ProfileEditData = () => {
                     <img src={avatarGreen} onClick={reload} />
                 </div>  
           </FooterProfile>
-    </div>
+    </MainDiv>
   )
 }
 
