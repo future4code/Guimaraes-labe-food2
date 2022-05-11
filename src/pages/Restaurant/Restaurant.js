@@ -70,7 +70,7 @@ export const Restaurant = () => {
                         {restDetail.category}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        {restDetail.deliveryTime}
+                        Tempo de espera {restDetail.deliveryTime} min
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         {restDetail.address}
@@ -80,15 +80,15 @@ export const Restaurant = () => {
             </Card>
             <CardContent>
                 {restDetail.products && restDetail.products.map((produto)=>(
-                    <Card sx={{ display: 'flex' }} key={produto.id}>
+                    <Card sx={{ display: 'flex', margin:1}} key={produto.id}>
                         <CardMedia
                             component="img"
-                            sx={{ width: 151 }}
+                            sx={{ width: 151}}
                             image={produto.photoUrl}
                             alt={produto.name}
                         />
                         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                            <CardContent sx={{ flex: '1 0 auto' }}>
+                            <CardContent sx={{ flex: '1 0 auto'}}>
                                 <Typography component="div" variant="h6" color="#5CB646">
                                     {produto.name}
                                 </Typography>
