@@ -11,7 +11,7 @@ const GlobalState = (props) => {
   const [category, setCategory] = useState("")
   const [profile, setProfile] = useState([])
   const [change, setChange] = useState(false)
-
+  const [carrinho, setCarrinho]=useState([])
 
 
   useEffect(()=>{
@@ -22,6 +22,9 @@ const GlobalState = (props) => {
     getRestaurants()
   },[])
 
+  useEffect(()=>{
+    console.log(carrinho)
+  },[carrinho])
   
   const getProfile = async () =>{
     const res = await axios.get(`${BASE_URL}profile`,
@@ -40,7 +43,7 @@ const GlobalState = (props) => {
 
     }})
     setRestaurants(response.data.restaurants)
-    console.log(response.data.restaurants)
+    console.log("lista de restaurantes", response.data.restaurants)
   }
 
   const getRestDetail = (id) => {
@@ -51,22 +54,29 @@ const GlobalState = (props) => {
 
     }}).then((response) => {
       setRestDetail(response.data.restaurant)
-      console.log(response.data.restaurant)
+      console.log("lista de detalhes", response.data.restaurant)
     }).catch((error) => {
       console.log(error)
     })
   }
 
-
-
-
-  const data = {getRestaurants, restaurants,getRestDetail,restDetail, setValueNames, namesValue, category, setCategory, setProfile, getProfile, profile, change, setChange}
+  const adicionarCarrinho=(produto,quantidade)=>{
+    produto.quantity=quantidade
+    setCarrinho([...carrinho,produto])
+  }
+  const apagar=()=>{
+    
+  }
+  const data = {getRestaurants, restaurants,getRestDetail,
+    restDetail, setValueNames, namesValue, category, 
+    setCategory, setProfile, getProfile, profile, change, setChange,adicionarCarrinho}
 
   return (
     <GlobalStateContext.Provider value={data}>
         {props.children}
+        
     </GlobalStateContext.Provider>
-)
+  )
 
 }
 
