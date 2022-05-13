@@ -89,3 +89,25 @@ width: 328px;
   margin-top: 100px;
   
 `
+export const FooterProfile = styled.div`
+display: flex;
+flex-direction: row;
+width: 100%;
+height: 49px;
+background-color: white;
+position: fixed;
+bottom: 0;
+
+div {
+    display: flex;
+    width: 120px;
+    height: 49px;
+    justify-content: center;
+
+    img {
+        width: 27px;
+        height: 27px;
+
+    }
+}
+`
