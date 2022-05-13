@@ -11,7 +11,7 @@ import edit from '../../img/edit.png'
 
 
 export const Profile = () => {
-    const {profile,getProfile} = useContext(GlobalStateContext)
+    const {profile, getProfile} = useContext(GlobalStateContext)
     const navigate = useNavigate()
     
     const reload = () => {
