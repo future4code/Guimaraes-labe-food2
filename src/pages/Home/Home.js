@@ -42,6 +42,8 @@ export const Home = () => {
         <HomeDiv>
             <HeaderHome>
                 <p>FutureEats</p>
+                <button onClick={logout}> x</button>
+
             </HeaderHome>
             <HeaderWrapper>
                 <input placeholder="Restaurante" type='text' onChange={updateNamesValue} value={namesValue}></input>

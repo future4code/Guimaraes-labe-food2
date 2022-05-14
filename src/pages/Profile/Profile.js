@@ -3,16 +3,21 @@ import { GlobalStateContext } from "../../Global/GlobalStateContext";
 import {    HeaderProfile, Info, Info2, ProfileDiv, Wrapper, FooterProfile} from './style'
 import { goToCart, goToHome, goToProfileEditAdress, goToProfileEditData } from "../../Routes/coordinator";
 import { useNavigate } from "react-router-dom";
+import { TitleDiv,BackImg,Subtitle } from "../ProfileEditAdress/style";
+import useProtectedPage from "../../Hooks/UseProtectedPage";
 
 import homepageGray from '../../img/homepageGray.png'
 import Cart_gray from '../../img/shopping-cart_gray.svg'
 import avatarGreen from '../../img/avatarGreen.png'
 import edit from '../../img/edit.png'
+import back from '../../img/back.png'
 
 
 export const Profile = () => {
     const {profile, getProfile} = useContext(GlobalStateContext)
     const navigate = useNavigate()
+    useProtectedPage();
+
     
     const reload = () => {
         window.location.reload()
@@ -31,9 +36,15 @@ export const Profile = () => {
     
     return(
         <ProfileDiv>
-            <HeaderProfile>
-                <p>Meu Perfil</p>
-            </HeaderProfile>
+      <TitleDiv>
+        <BackImg src={back} onClick={() => {goToHome(navigate)}} />
+        <Subtitle>Perfil</Subtitle>
+      </TitleDiv>
+      <br/>
+      <br/>
+      <br/>
+
+
 
             <Wrapper>
                 <Info>{profile.name}</Info>
