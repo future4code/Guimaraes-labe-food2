@@ -11,7 +11,7 @@ const GlobalState = (props) => {
   const [category, setCategory] = useState("")
   const [profile, setProfile] = useState([])
   const [change, setChange] = useState(false)
-  const [carrinho, setCarrinho]=useState([])
+  const [cart, setCart]=useState([])
 
 
   useEffect(()=>{
@@ -23,8 +23,8 @@ const GlobalState = (props) => {
   },[])
 
   useEffect(()=>{
-    console.log(carrinho)
-  },[carrinho])
+    console.log(cart)
+  },[cart])
   
   const getProfile = async () =>{
     const token = localStorage.getItem("token");
@@ -37,17 +37,36 @@ const GlobalState = (props) => {
     console.log('aquiii', res.data.user)
   }
 
-  const getRestaurants = async () => {
+  // const getRestaurants = async () => {
+  //   const token = localStorage.getItem("token");
+  //   const response = await axios.get(`${BASE_URL}restaurants`,
+  //   {headers: {
+  //     // token chumbado
+  //     auth: token
+
+  //   }})
+  //   setRestaurants(response.data.restaurants)
+  //   console.log("lista de restaurantes", response.data.restaurants)
+  // }
+
+  const getRestaurants = () => {
     const token = localStorage.getItem("token");
-    const response = await axios.get(`${BASE_URL}restaurants`,
-    {headers: {
-      auth: token,
+
+    axios
+      .get(`${BASE_URL}restaurants`, {
+        headers: {
+          auth: token
+        },
+      })
+      .then((res) => {
+        setRestaurants(res.data.restaurants);
+      })
+      .catch((err) => {
+        alert(err.response.data.message);
+      });
+  };
 
 
-    }})
-    setRestaurants(response.data.restaurants)
-    console.log("lista de restaurantes", response.data.restaurants)
-  }
 
   const getRestDetail = (id) => {
     const token = localStorage.getItem("token");
@@ -64,16 +83,16 @@ const GlobalState = (props) => {
     })
   }
 
-  const adicionarCarrinho=(produto,quantidade)=>{
+  const addCart=(produto,quantidade)=>{
     produto.quantity=quantidade
-    setCarrinho([...carrinho,produto])
+    setCart([...cart,produto])
   }
   const apagar=()=>{
     
   }
   const data = {getRestaurants, restaurants,getRestDetail,
     restDetail, setValueNames, namesValue, category, 
-    setCategory, setProfile, getProfile, profile, change, setChange,adicionarCarrinho}
+    setCategory, setProfile, getProfile, profile, change, setChange,addCart}
 
   return (
     <GlobalStateContext.Provider value={data}>
