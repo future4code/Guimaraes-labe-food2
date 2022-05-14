@@ -27,19 +27,22 @@ const GlobalState = (props) => {
   },[carrinho])
   
   const getProfile = async () =>{
+    const token = localStorage.getItem("token");
+
     const res = await axios.get(`${BASE_URL}profile`,
     {headers: {
-      auth:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikcyb2dFcDFuQnE5bW5TUXNieGI2IiwibmFtZSI6IkxhYmVmb29kMi1HdWltYXJhZXNUZXN0ZSIsImVtYWlsIjoibGFiZWZvb2QyQGd1aW1hcmFlc1Rlc3RlLmNvbS5iciIsImNwZiI6IjIyNS42NzkuNDY4LTk0IiwiaGFzQWRkcmVzcyI6dHJ1ZSwiYWRkcmVzcyI6IkFtYXJvIFNpbGxlcyBkYSBTaWx2YSwgMjEgLSBKZCBFc3RlciIsImlhdCI6MTY1MTY5NzMwOH0.VjlhNvR9EJQ4vtk-sAP2nKcgB9gn_DIXl6i8rGRssnc'
+      auth:token,
     }})
     setProfile(res.data.user)
     console.log('aquiii', res.data.user)
   }
 
   const getRestaurants = async () => {
+    const token = localStorage.getItem("token");
     const response = await axios.get(`${BASE_URL}restaurants`,
     {headers: {
-      // token chumbado
-      auth: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im8yb2xvajJpUnVpaHEwaG80aUFZIiwibmFtZSI6IkNhcm9sIEthenVlIiwiZW1haWwiOiJjYXJvbC5rYXp1ZUBlbWFpbC5jb20iLCJjcGYiOiI0Mzk3NDczNDgwNSIsImhhc0FkZHJlc3MiOnRydWUsImFkZHJlc3MiOiJSLkp1bGlldGEgZGUgTW9yYWVzLCA3NSAtIFZpdG9yaWEgUsOpZ2lhIiwiaWF0IjoxNjUxMTcyNzc5fQ.o0HHdSakboa8xxc29XKjRTa0Jw4IQaLJ5AYF-1NQZFs'
+      auth: token,
+
 
     }})
     setRestaurants(response.data.restaurants)
@@ -47,10 +50,11 @@ const GlobalState = (props) => {
   }
 
   const getRestDetail = (id) => {
+    const token = localStorage.getItem("token");
+
     axios.get(`${BASE_URL}restaurants/${id}`,
     {headers: {
-      // token chumbado
-      auth: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im8yb2xvajJpUnVpaHEwaG80aUFZIiwibmFtZSI6IkNhcm9sIEthenVlIiwiZW1haWwiOiJjYXJvbC5rYXp1ZUBlbWFpbC5jb20iLCJjcGYiOiI0Mzk3NDczNDgwNSIsImhhc0FkZHJlc3MiOnRydWUsImFkZHJlc3MiOiJSLkp1bGlldGEgZGUgTW9yYWVzLCA3NSAtIFZpdG9yaWEgUsOpZ2lhIiwiaWF0IjoxNjUxMTcyNzc5fQ.o0HHdSakboa8xxc29XKjRTa0Jw4IQaLJ5AYF-1NQZFs'
+      auth: token,
 
     }}).then((response) => {
       setRestDetail(response.data.restaurant)

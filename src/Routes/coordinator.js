@@ -33,3 +33,7 @@ export const goToProfileEditData = (navigate) => {
 export const goToProfileEditAdress = (navigate) => {
     navigate('/profile/editAdress')
 }
+
+export const goBack = (navigate) =>{
+    navigate(-1)
+}

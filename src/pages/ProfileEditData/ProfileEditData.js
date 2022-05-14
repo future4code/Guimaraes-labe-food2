@@ -26,11 +26,13 @@ const ProfileEditData = () => {
   const { form, onChange, clenFields} = useForms({ name: "", email: "", cpf: ""});
 
   const handleSubmission = (event) => {  
+    const token = localStorage.getItem("token");
+
       event.preventDefault()  
       axios
     .put(`${BASE_URL}profile`, form, {
       headers: {
-        auth: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikcyb2dFcDFuQnE5bW5TUXNieGI2IiwibmFtZSI6IkxhYmVmb29kMi1HdWltYXJhZXNUZXN0ZSIsImVtYWlsIjoibGFiZWZvb2QyQGd1aW1hcmFlc1Rlc3RlLmNvbS5iciIsImNwZiI6IjIyNS42NzkuNDY4LTk0IiwiaGFzQWRkcmVzcyI6dHJ1ZSwiYWRkcmVzcyI6IkFtYXJvIFNpbGxlcyBkYSBTaWx2YSwgMjEgLSBKZCBFc3RlciIsImlhdCI6MTY1MTY5NzMwOH0.VjlhNvR9EJQ4vtk-sAP2nKcgB9gn_DIXl6i8rGRssnc'
+        auth: token,
       },
     })
     .then((res) => {
