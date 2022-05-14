@@ -36,8 +36,6 @@ export const Home = () => {
         setValueNames(event.target.value)
     }
 
-    console.log(category)
-
     return(
         <HomeDiv>
             <HeaderHome>
