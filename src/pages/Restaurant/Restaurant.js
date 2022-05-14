@@ -38,7 +38,7 @@ export const Restaurant = () => {
     };
 
     useProtectedPage();
-    const {restDetail,getRestDetail,adicionarCarrinho} = useContext(GlobalStateContext)
+    const {restDetail,getRestDetail,addCart} = useContext(GlobalStateContext)
     const param= useParams();
     useEffect (()=>{
         if(restDetail.id !== param.id){
@@ -137,7 +137,7 @@ export const Restaurant = () => {
                                                     <MenuItem value={10}>10</MenuItem>
                                                 </Select>
                                             </FormControl>
-                                            <Button sx={{ m: 3}} onClick={()=>{adicionarCarrinho(produto,quantidade);
+                                            <Button sx={{ m: 3}} onClick={()=>{addCart(produto,quantidade);
                                                 setQuantidade("")
                                             }}>Adicionar</Button>
                                             </Box>

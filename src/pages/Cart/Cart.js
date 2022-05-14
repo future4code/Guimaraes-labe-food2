@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AdressArea, EmptyCart, FormaPagamento, FreteArea, LineSpan,
          NavBar, TextAdressH4, TextAdressP, TotalPay,ButtonConfirm, BtContainer  } from "./style";
 
@@ -15,6 +15,8 @@ import { GlobalStateContext } from "../../Global/GlobalStateContext";
 export const Cart = () => {
     const navigate = useNavigate()
 
+    const {addCart, cartBasket} = useContext(GlobalStateContext)
+
     const reload = () => {
         window.location.reload()
     }
@@ -26,6 +28,19 @@ export const Cart = () => {
     const home = () => {
         goToHome(navigate)
     }
+
+    
+
+    console.log(cartBasket)
+
+    const renderBasket = cartBasket.map((item) => {
+        return(
+            <div key={item.name}>
+                <p>{item.name}</p>
+                <p>{item.quantity}</p>
+            </div>
+        )
+    })
 
     return(
         <EmptyCart>
@@ -40,6 +55,7 @@ export const Cart = () => {
 
             <NavBar>
                 <h3>Carrinho Vazio</h3>
+                {renderBasket}
             </NavBar>
 
             <FreteArea>

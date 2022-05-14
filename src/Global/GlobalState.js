@@ -11,7 +11,7 @@ const GlobalState = (props) => {
   const [category, setCategory] = useState("")
   const [profile, setProfile] = useState([])
   const [change, setChange] = useState(false)
-  const [cart, setCart]=useState([])
+  const [cartBasket, setCart]=useState([])
 
 
   useEffect(()=>{
@@ -23,8 +23,8 @@ const GlobalState = (props) => {
   },[])
 
   useEffect(()=>{
-    console.log(cart)
-  },[cart])
+    console.log(cartBasket)
+  },[cartBasket])
   
   const getProfile = async () =>{
     const token = localStorage.getItem("token");
@@ -83,16 +83,16 @@ const GlobalState = (props) => {
     })
   }
 
-  const addCart=(produto,quantidade)=>{
-    produto.quantity=quantidade
-    setCart([...cart,produto])
+  const addCart=(product,quant)=>{
+    product.quantity=quant
+    setCart([...cartBasket,product])
   }
   const apagar=()=>{
     
   }
   const data = {getRestaurants, restaurants,getRestDetail,
     restDetail, setValueNames, namesValue, category, 
-    setCategory, setProfile, getProfile, profile, change, setChange,addCart}
+    setCategory, setProfile, getProfile, profile, change, setChange, addCart, cartBasket}
 
   return (
     <GlobalStateContext.Provider value={data}>
