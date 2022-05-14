@@ -1,15 +1,19 @@
 import React from "react"
 import { InputsContainer, RegisterFormContainer } from "./style"
 import { Button, TextField } from "@material-ui/core"
-import useForms from '../../Hooks/UseForms'
-import { primaryColor } from "../../Constants/colors"
+import useForms from '../../Hooks/useForms'
+import { register } from "../../services/user"
+import { useNavigate } from "react-router-dom"
+
 
 const RegisterForm = () => {
-  const [form, onChange, clear] = useForms({name: '', email: '', cpf: '', password: ''})
+  const navigate = useNavigate()
+  const [form, onChange, clear] = useForms({name: '', email: '', cpf: '', confirmation: ''})
 
   const onSubmitForm = (event) => {
       console.log(form)
       event.preventDefault()
+      register(form, clear, navigate)
   }
 
     return (
@@ -58,11 +62,10 @@ const RegisterForm = () => {
                   fullWidth
                   margin={'normal'}
                   required
-                  type={'password'}
                 />
                 <TextField
-                  name={'password'}
-                  value={form.password}
+                  name={'confirmation'}
+                  value={form.confirmation}
                   onChange={onChange}
                   label={'Confirmar'}
                   variant={'outlined'}
