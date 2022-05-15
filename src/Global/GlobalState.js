@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../Constants/BASE_URL'
 import { GlobalStateContext } from './GlobalStateContext'
+import { useNavigate } from 'react-router-dom';
 
 const GlobalState = (props) => {
 
@@ -12,7 +13,7 @@ const GlobalState = (props) => {
   const [category, setCategory] = useState("")
   const [change, setChange] = useState(false)
   const [cartBasket, setCart]=useState([])
-
+  const [order, setOrder] = useState([])
 
   useEffect(()=>{
     getProfile()
@@ -101,16 +102,23 @@ const GlobalState = (props) => {
       console.log(error)
     })
   }
+
+  
+
+
   const addCart=(product,quant)=>{
     product.quantity=quant
     setCart([...cartBasket,product])
   }
-  const apagar=()=>{
-    
-  }
+
+
+
+
+
+
   const data = {getRestaurants, restaurants,getRestDetail,
     restDetail, setValueNames, namesValue, category, placeOrder,
-    setCategory, setProfile, getProfile, profile, change, setChange, addCart, cartBasket}
+    setCategory, setProfile, getProfile, profile, change, setChange, addCart, cartBasket, order, setOrder}
 
   return (
     <GlobalStateContext.Provider value={data}>

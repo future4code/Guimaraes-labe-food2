@@ -1,17 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import CardRestaurant from "../../components/CardRestaurant/CardRestaurant";
 import { GlobalStateContext } from "../../Global/GlobalStateContext";
-import { BtnRmvFltr, ButtonCategory, FilterGrid, FooterHome, HeaderHome, HeaderWrapper, HomeDiv, RestaurantsList } from "./style";
+import { BtnRmvFltr, ButtonCategory, FilterGrid, FooterHome, HeaderHome, HeaderWrapper, HomeDiv, Order, RestaurantsList } from "./style";
 import useProtectedPage from "../../Hooks/UseProtectedPage";
 import { useNavigate } from "react-router-dom";
 import { goToCart, goToLoginPage, goToProfile } from "../../Routes/coordinator";
 import Homepage_green from '../../img/homepage_green.svg'
 import Cart_gray from '../../img/shopping-cart_gray.svg'
 import Avatar_gray from '../../img/avatar_gray.svg'
+import axios from "axios";
+import { BASE_URL } from "../../Constants/BASE_URL";
 
 export const Home = () => {
     useProtectedPage();
     const navigate = useNavigate()
+
+
+    useEffect(()=>{
+        getActiveOrder()
+      },[])
 
     const logout = () => {
         localStorage.removeItem('token')
@@ -30,10 +37,40 @@ export const Home = () => {
         goToProfile(navigate)
     }
 
-    const {restaurants,getRestDetail, setValueNames, namesValue, setCategory, category, } = useContext(GlobalStateContext)
+    const {restaurants,getRestDetail, setValueNames, namesValue, setCategory, category, order, setOrder} = useContext(GlobalStateContext)
 
     const updateNamesValue = (event) => {
         setValueNames(event.target.value)
+    }
+
+    const getActiveOrder = () => {
+        const token = localStorage.getItem("token")
+        
+        axios.get(`${BASE_URL}active-order`,
+       {headers: {
+         auth:token
+      }}).then((res)=> {
+        setOrder(res.data.order)
+        console.log(res.data)
+        navigate("/home")
+
+    
+    
+      })
+      }
+
+
+
+    const renderOrder = () => {
+        if (order != null) {
+            return(
+                <Order>
+                    <p>Pedido em andamento</p>
+                    <p>{order.restaurantName}</p>
+                    <p><span>SUBTOTAL R$ </span>{order.totalPrice}</p>
+                </Order>
+            )
+        }
     }
 
     return(
@@ -63,6 +100,9 @@ export const Home = () => {
                 <CardRestaurant key={filteredRest.id} rest={filteredRest} getRestDetail={getRestDetail}></CardRestaurant>
                 ))} 
             </RestaurantsList>
+
+                    {renderOrder()}
+
             <FooterHome>
                 <div>
                     <img src={Homepage_green} onClick={reload} />
