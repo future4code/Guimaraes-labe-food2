@@ -5,20 +5,17 @@ import { GlobalStateContext } from './GlobalStateContext'
 
 const GlobalState = (props) => {
 
+  const [profile, setProfile] = useState([])
   const [restaurants, setRestaurants] = useState([])
   const [restDetail, setRestDetail] = useState([])
   const [namesValue, setValueNames] = useState("")
   const [category, setCategory] = useState("")
-  const [profile, setProfile] = useState([])
   const [change, setChange] = useState(false)
   const [cartBasket, setCart]=useState([])
 
 
   useEffect(()=>{
     getProfile()
-  },[])
-
-  useEffect(()=>{
     getRestaurants()
   },[])
 
@@ -26,15 +23,18 @@ const GlobalState = (props) => {
     console.log(cartBasket)
   },[cartBasket])
   
-  const getProfile = async () =>{
+  const getProfile =  () => {
     const token = localStorage.getItem("token");
 
-    const res = await axios.get(`${BASE_URL}profile`,
+    axios.get(`${BASE_URL}profile`,
     {headers: {
       auth:token,
     }})
-    setProfile(res.data.user)
-    console.log('aquiii', res.data.user)
+    .then((res) => {
+      setProfile(res.data.user)
+      console.log('aquiii', res.data.user)
+    })
+
   }
 
   // const getRestaurants = async () => {
@@ -62,7 +62,7 @@ const GlobalState = (props) => {
         setRestaurants(res.data.restaurants);
       })
       .catch((err) => {
-        alert(err.response.data.message);
+        console.log(err.response.data.message);
       });
   };
 
