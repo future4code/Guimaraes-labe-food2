@@ -95,16 +95,18 @@ width: 328px;
   border: none;
   background-color:rgba(92, 182, 70, 0.5);
   margin-top: 100px;
+  padding-bottom: 100px;
   
 `
-export const FooterProfile = styled.div`
+export const FooterCart = styled.div`
 display: flex;
+width: 100%;
 flex-direction: row;
-
 height: 49px;
 background-color: white;
 position: fixed;
 bottom: 0;
+margin-top: 50px;
 
 div {
     display: flex;
@@ -114,7 +116,6 @@ div {
 
     img {
         width: 27px;
-        height: 27px;
 
     }
 }

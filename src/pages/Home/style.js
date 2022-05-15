@@ -111,3 +111,35 @@ display: flex;
 flex-direction: column;
 padding-bottom: 50px;
 `
+
+export const Order = styled.div`
+display: flex;
+flex-direction: column;
+width: 375px;
+height: 118px;
+background-color: #5cb646;
+position: fixed;
+bottom: 49px;
+justify-items: center;
+
+p:first-child{
+    padding-top: 24px;
+    color: #ffffff
+}
+
+p:nth-child(2) {
+    font-weight: 500;
+}
+
+p:nth-child(3) {
+    font-weight: 700;
+}
+
+
+p {
+    margin: 0;
+    height: 30px;
+    padding-left: 80px;
+
+}
+`
