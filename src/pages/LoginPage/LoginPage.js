@@ -39,15 +39,12 @@ const login = () => {
             <Title2>Eats</Title2>
             </TitleDiv>
             
-            <Label> Digite o Email de usuário:</Label>            
             <LoginInput type={'email'} placeholder={'Email de Usuário'} value={email} onChange={handleEmail} required/>
-            <Label> Digite a Senha:</Label>
             <PasswordInput type={'password'} placeholder={'Senha'} value={password} onChange={handlePassword} required/>
             <br/>
             <br/>
             <BtnDiv>
-            <BtnLogin onClick={() => {goToHome(navigate)}}>Voltar</BtnLogin>
-            <BtnLogin onClick={login}>Login</BtnLogin>
+            <BtnLogin onClick={login}>Entrar</BtnLogin>
             </BtnDiv>
             <FooterTitle>Ainda não é cadastrado? <Register  onClick={() => {goToRegister(navigate)}}>Clique aqui</Register></FooterTitle>
 

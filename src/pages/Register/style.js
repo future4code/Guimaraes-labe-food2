@@ -32,6 +32,26 @@ export const RegisterButtonContainer = styled.div`
 `
 
 export const LogoImage = styled.img`
-   width: 70vw;
-   max-width: 350px;
+   width: 104px;
+   height: 58px;
+`
+
+export const BtnLogin = styled.button`
+margin: auto;
+border-radius: 2px;
+height: 42px;
+width: 328px;
+background: #5cb646;
+border-color: #5CB646;
+color: black;
+transition: 1.3s;
+
+    :hover{
+        background: #5CB646 ;
+        color: #000000;
+        opacity: 70%;
+    }
+    
+;
+
 `
