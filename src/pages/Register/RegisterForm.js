@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import { InputsContainer, RegisterFormContainer } from "./style"
-import { Button, TextField } from "@material-ui/core"
+import { InputsContainer, RegisterFormContainer, BtnLogin } from "./style"
+import { TextField } from "@material-ui/core"
 import useForms from '../../Hooks/UseForms'
 import { register } from "../../services/user"
 import { useNavigate } from "react-router-dom"
@@ -41,8 +41,8 @@ const RegisterForm = () => {
       .post(`${BASE_URL}signup`, body)
       .then(res => {
         localStorage.setItem('token', res.data.token)
-        navigate('/profile/editAdress')
         console.log('Deu mt bom')
+        navigate('/profile/editAdress')
       })
       .catch((err) => {alert(err.response.data.message)}
       )
@@ -111,7 +111,7 @@ const RegisterForm = () => {
                   required
                   type={'password'}
                 /> */}
-                <Button
+                <BtnLogin
                   type="submit"
                   fullWidth
                   variant={'contained'}
@@ -119,7 +119,7 @@ const RegisterForm = () => {
                   onClick={signUp}
                 >
                   Criar
-                </Button>
+                </BtnLogin>
               </InputsContainer>
            </RegisterFormContainer>
        </form>
