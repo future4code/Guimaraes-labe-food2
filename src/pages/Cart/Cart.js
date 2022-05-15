@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AdressArea, EmptyCart, FormaPagamento, FreteArea, LineSpan,
     NavBar, TextAdressH4, TextAdressP, TotalPay,ButtonConfirm, BtContainer, FooterCart  } from "./style";
-import { goToCart, goToHome, goToProfileEditAdress, goToProfileEditData } from "../../Routes/coordinator";
+import { goToCart, goToHome, goToProfile, goToProfileEditAdress, goToProfileEditData } from "../../Routes/coordinator";
 import { useNavigate } from "react-router-dom";
 import homepageGray from '../../img/homepage-gray.svg'
 import cart_green from '../../img/shopping-cart-green.svg'
@@ -36,6 +36,10 @@ export const Cart = () => {
 
     const home = () => {
         goToHome(navigate)
+    }
+
+    const goProfile = () => {
+        goToProfile(navigate)
     }
 
     const payCard= (ev)=>{
@@ -152,7 +156,7 @@ export const Cart = () => {
                     <img src={cart_green} onClick={cart} />
                 </div>
                 <div>
-                    <img src={avatarGray} onClick={reload} />
+                    <img src={avatarGray} onClick={goProfile} />
                 </div>  
             </FooterCart>
         </EmptyCart>
