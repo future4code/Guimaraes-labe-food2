@@ -13,7 +13,13 @@ import Modal from '@mui/material/Modal';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
+import { useNavigate } from "react-router-dom";
+import back from '../../img/back.png'
+import { TitleDiv,BackImg,Subtitle } from "../ProfileEditAdress/style";
+import { goToHome } from "../../Routes/coordinator"; 
+import { Navigate } from "react-router-dom";
+import { AdressArea, EmptyCart, FormaPagamento, FreteArea, LineSpan,
+    NavBar, TextAdressH4, TextAdressP, TotalPay,ButtonConfirm, BtContainer  } from "../Cart/style"
 const style = {
     position: 'absolute',
     top: '50%',
@@ -32,10 +38,10 @@ export const Restaurant = () => {
     const handleOpen = (id) => setOpen(id);
     const handleClose = () => setOpen(false);
     const [quantidade, setQuantidade] = React.useState('');
-
     const handleChange = (event) => {
         setQuantidade(event.target.value);
     };
+    const navigate = useNavigate()
 
     useProtectedPage();
     const {restDetail,getRestDetail,addCart} = useContext(GlobalStateContext)
@@ -47,10 +53,12 @@ export const Restaurant = () => {
     },[])
     return(
         <div>
-            
-                <HeaderHome>
-                    <p>FutureEats</p>
-                </HeaderHome>
+            <NavBar>
+            <TitleDiv>
+                <BackImg src={back} onClick={() => {goToHome(navigate)}} />
+            </TitleDiv>
+                <h3>FutureEats</h3>
+            </NavBar>
             
             <Card sx={{ maxWidth: "auto" }} 
                 key={restDetail.id}>

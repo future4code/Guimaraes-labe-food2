@@ -1,5 +1,13 @@
 import styled from 'styled-components'
 
+export const ProfileDiv = styled.div`
+height: 100vh;
+max-width: 375px;
+align-items: center;
+font-family: Roboto;
+letter-spacing: -0.39px;
+
+`
 export const EmptyCart = styled.div`
 width: 100%;
 height: 640px;
@@ -35,7 +43,7 @@ color: #b8b8b8;
 
 export const TextAdressH4 = styled.h4`
 font-family: Roboto;
-font-size: 16px
+font-size: 16px;
 color:black;
 
 `
@@ -92,7 +100,7 @@ width: 328px;
 export const FooterProfile = styled.div`
 display: flex;
 flex-direction: row;
-width: 100%;
+
 height: 49px;
 background-color: white;
 position: fixed;
