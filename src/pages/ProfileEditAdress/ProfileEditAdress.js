@@ -34,6 +34,8 @@ const ProfileEditAdress = () => {
       },
     })
     .then((res) => {
+      localStorage.setItem('token', res.data.token)
+
       alert('Seu endereço foi alterado com sucesso!');
       navigate('/profile');
       reload()
