@@ -82,7 +82,25 @@ const GlobalState = (props) => {
       console.log(error)
     })
   }
-
+  const placeOrder=(paymentMethod)=>{
+    const token = localStorage.getItem("token")
+    const body={
+      products: cartBasket.map((item)=>{
+        const { id,quantity }= item;
+        return { id, quantity}
+      }),
+      paymentMethod
+    }
+    axios.post(`${BASE_URL}restaurants/${restDetail.id}/order`, 
+    body,
+    {headers: {
+      auth: token,
+    }}).then((res)=>{
+      console.log(res)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }
   const addCart=(product,quant)=>{
     product.quantity=quant
     setCart([...cartBasket,product])
@@ -91,7 +109,7 @@ const GlobalState = (props) => {
     
   }
   const data = {getRestaurants, restaurants,getRestDetail,
-    restDetail, setValueNames, namesValue, category, 
+    restDetail, setValueNames, namesValue, category, placeOrder,
     setCategory, setProfile, getProfile, profile, change, setChange, addCart, cartBasket}
 
   return (

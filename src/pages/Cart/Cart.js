@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AdressArea, EmptyCart, FormaPagamento, FreteArea, LineSpan,
          NavBar, TextAdressH4, TextAdressP, TotalPay,ButtonConfirm, BtContainer  } from "./style";
 
@@ -24,10 +24,9 @@ import back from '../../img/back.png'
 import { TitleDiv,BackImg,Subtitle } from "../ProfileEditAdress/style"; 
       
 export const Cart = () => {
-    const {restDetail,profile} = useContext(GlobalStateContext)
+    const {restDetail,profile,placeOrder,cartBasket} = useContext(GlobalStateContext)
+    const [paymentMethod,setPaymentMethod]=useState()
     const navigate = useNavigate()
-
-    const {addCart, cartBasket} = useContext(GlobalStateContext)
 
     const reload = () => {
         window.location.reload()
@@ -41,7 +40,9 @@ export const Cart = () => {
         goToHome(navigate)
     }
 
-    
+    const payCard= (ev)=>{
+     setPaymentMethod(ev.target.value)
+    }
 
     console.log(cartBasket)
 
@@ -115,7 +116,7 @@ export const Cart = () => {
                     </FreteArea>
 
                     <TotalPay>
-                        <h3>SUBTOTAL</h3>
+                        <h3>TOTAL</h3>
                         <p>R$0,00</p>
                     </TotalPay>
                     <Typography gutterBottom variant="h6" component="div"
@@ -128,13 +129,14 @@ export const Cart = () => {
                         aria-labelledby="demo-radio-buttons-group-label"
                         defaultValue="female"
                         name="radio-buttons-group"
+                        onChange={payCard}
                     >
-                        <FormControlLabel value="credito" control={<Radio />} label="Crédito" />
-                        <FormControlLabel value="debito" control={<Radio />} label="Débito" />
+                        <FormControlLabel value="creditcard" control={<Radio />} label="Crédito" />
+                        <FormControlLabel value="money" control={<Radio />} label="Dinheiro" />
                     </RadioGroup>
                     </FormControl>
                     <Box sx={{ display: 'flex', alignItems: 'center', pl: 0, pb: 0, }}>
-                        <Button sx={{ margin:'auto', width:1000,}} variant="contained" color="primary">Confirmar</Button>
+                        <Button sx={{ margin:'auto', width:1000,}} variant="contained" color="primary" onClick={ ()=> placeOrder(paymentMethod)}>Confirmar</Button>
                     </Box>
                 </CardContent>
 
