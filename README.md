@@ -10,7 +10,7 @@
 <p align="justify"> Login: labefood2@guimaraes.com.br </p>
 <p align="justify"> Senha: 123 </p>
 
-<h2> Link do Surge </h2>
+<h2>🥪 Link do Surge </h2>
 <p> https://taboo-church.surge.sh/ </p>
 
 <h2>🌭 O que funciona</h2>
@@ -22,7 +22,7 @@
 * Seção de informações do usuário com histórico de pedidos e edição de cadastro;
 * Informação de um pedido em andamento;
 
-<h2> Imagens do app </h2>
+<h2>🥗 Imagens do app </h2>
 
 ![LOGIN](https://user-images.githubusercontent.com/86529848/168507233-a40fd0c9-be0d-4b54-b34c-dcb54999e9cf.png)
 
