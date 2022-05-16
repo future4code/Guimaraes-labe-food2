@@ -18,7 +18,7 @@
 * Login e Cadastros com validação de campos;
 * Lista e Seleção de restaurantes com filtro por categorias únicas e busca por por nome;
 * Visualizar e Selecionar itens do cardápio de um restaurante;
-* Carrinho para confirmação do pedido, podendo remover itens;
+* Carrinho para confirmação do pedido;
 * Seção de informações do usuário com histórico de pedidos e edição de cadastro;
 * Informação de um pedido em andamento;
 
