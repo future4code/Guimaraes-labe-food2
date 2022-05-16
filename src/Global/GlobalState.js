@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from 'react'
+import React,
+ {useEffect, useState} from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../Constants/BASE_URL'
 import { GlobalStateContext } from './GlobalStateContext'
@@ -14,7 +15,7 @@ const GlobalState = (props) => {
   const [change, setChange] = useState(false)
   const [cartBasket, setCart]=useState([])
   const [order, setOrder] = useState([])
-
+  const [history,setHistory]=useState([])
   useEffect(()=>{
     getProfile()
     getRestaurants()
@@ -102,10 +103,19 @@ const GlobalState = (props) => {
       console.log(error)
     })
   }
-
+  const orderHistory=()=>{
+    const token = localStorage.getItem("token")
+    axios.get(`${BASE_URL}orders/history`,
+    {headers: {
+      auth: token,
+    }}).then((res)=>{
+      setHistory(res.data.orders)
+      console.log("lista histórico",res.data.orders)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  }
   
-
-
   const addCart=(product,quant)=>{
     product.quantity=quant
     setCart([...cartBasket,product])
@@ -116,9 +126,28 @@ const GlobalState = (props) => {
 
 
 
-  const data = {getRestaurants, restaurants,getRestDetail,
-    restDetail, setValueNames, namesValue, category, placeOrder,
-    setCategory, setProfile, getProfile, profile, change, setChange, addCart, cartBasket, order, setOrder}
+  const data = {
+    getRestaurants, 
+    restaurants,
+    getRestDetail,
+    history,
+    orderHistory,
+    restDetail,
+     setValueNames,
+     namesValue,
+     category,
+     placeOrder,
+
+    setCategory,
+     setProfile,
+     getProfile,
+     profile,
+     change,
+     setChange,
+     addCart,
+     cartBasket,
+     order,
+     setOrder}
 
   return (
     <GlobalStateContext.Provider value={data}>
