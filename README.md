@@ -11,7 +11,7 @@
 <p align="justify"> Senha: 123 </p>
 
 <h2> Link do Surge </h2>
-<p> LINK </p>
+<p> https://taboo-church.surge.sh/ </p>
 
 <h2>🌭 O que funciona</h2>
 
@@ -24,6 +24,13 @@
 
 <h2> Imagens do app </h2>
 
+![LOGIN](https://user-images.githubusercontent.com/86529848/168507233-a40fd0c9-be0d-4b54-b34c-dcb54999e9cf.png)
+
+![HOME](https://user-images.githubusercontent.com/86529848/168507184-a6cf6a53-d364-4b25-b10e-ffe367cc0ed5.png)
+
+![CART](https://user-images.githubusercontent.com/86529848/168507246-f3c89c8f-8775-41af-80e5-3653de649f2a.png)
+
+![PROFILE](https://user-images.githubusercontent.com/86529848/168507256-30af01a8-d2b3-4d5d-93a4-c5460814290a.png)
 
 
 <h2>👨‍💻👩‍💻 Desenvolvedores</h2>
