@@ -101,7 +101,7 @@ export const Cart = () => {
                         {restDetail.category}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Tempo de espera {restDetail.deliveryTime} min
+                        Tempo de espera em {restDetail.deliveryTime} minitos
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         {restDetail.address}
