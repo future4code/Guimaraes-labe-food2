@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from "react";
 import { GlobalStateContext } from "../../Global/GlobalStateContext";
 import {    HeaderProfile, Info, Info2, ProfileDiv, Wrapper, FooterProfile} from './style'
-import { goToCart, goToHome, goToProfileEditAdress, goToProfileEditData } from "../../Routes/coordinator";
+import { goToCart, goToHome, goToLoginPage, goToProfileEditAdress, goToProfileEditData } from "../../Routes/coordinator";
 import { useNavigate } from "react-router-dom";
 import { TitleDiv,BackImg,Subtitle } from "../ProfileEditAdress/style";
 import useProtectedPage from "../../Hooks/UseProtectedPage";
@@ -18,7 +18,11 @@ export const Profile = () => {
     const {profile, history,orderHistory} = useContext(GlobalStateContext)
     const navigate = useNavigate()
     useProtectedPage();
-
+    
+    const logout = () => {
+        localStorage.removeItem('token')
+        goToLoginPage(navigate)
+    }
     
     const reload = () => {
         window.location.reload()
@@ -40,6 +44,7 @@ export const Profile = () => {
       <TitleDiv>
         <BackImg src={back} onClick={() => {goToHome(navigate)}} />
         <Subtitle>Perfil</Subtitle>
+        <button onClick={logout}>Logout</button>
       </TitleDiv>
       <br/>
       <br/>

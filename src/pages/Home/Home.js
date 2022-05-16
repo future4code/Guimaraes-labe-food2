@@ -20,11 +20,6 @@ export const Home = () => {
         getActiveOrder()
       },[])
 
-    const logout = () => {
-        localStorage.removeItem('token')
-        goToLoginPage(navigate)
-    }
-
     const reload = () => {
         window.location.reload()
     }
@@ -53,9 +48,6 @@ export const Home = () => {
         setOrder(res.data.order)
         console.log(res.data)
         navigate("/home")
-
-    
-    
       })
       }
 
@@ -77,7 +69,6 @@ export const Home = () => {
         <HomeDiv>
             <HeaderHome>
                 <p>FutureEats</p>
-                <button onClick={logout}> x</button>
 
             </HeaderHome>
             <HeaderWrapper>

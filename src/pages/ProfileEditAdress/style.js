@@ -17,6 +17,16 @@ flex-direction: row;
 padding: 0;
 align-items:center;
 position: fixed;
+
+button {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #e02020;
+    color: #ffffff;
+    outline: none;
+    border: none;
+}
 `
 export const Subtitle = styled.p`
 font-family: roboto;
