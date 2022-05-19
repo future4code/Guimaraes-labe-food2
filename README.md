@@ -1,68 +1,66 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- TITLE -->
+<h1 align="center"> 🍔 Future Eats 🍔</h1>
 
-## Available Scripts
+<!-- SOBRE -->
+<h2 >🍕 Sobre</h2>
+<p align="justify"> Projeto final do frontend desenvolvido conforme proposta da Labenu para criação de um app de pedidos de comida, muito parecido com aplicativos atuais.</p>
+<p align="justify"> Nesse projeto foram utilizadas diversas funcionalidades, como por exemplo: React, React Router, autenticação, uso de bibliotecas de UI, formulários com validação, Hooks, entre outros.</p>
+    <br>
+<h3 align="justify"> Usuário para teste: </h3>
+<p align="justify"> Login: labefood2@guimaraes.com.br </p>
+<p align="justify"> Senha: 123 </p>
 
-In the project directory, you can run:
+<h2>🥪 Link do Surge </h2>
+<p> https://taboo-church.surge.sh/ </p>
 
-### `npm start`
+<h2>🌭 O que funciona</h2>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Login e Cadastros com validação de campos;
+* Lista e Seleção de restaurantes com filtro por categorias únicas e busca por por nome;
+* Visualizar e Selecionar itens do cardápio de um restaurante;
+* Carrinho para confirmação do pedido;
+* Seção de informações do usuário com histórico de pedidos e edição de cadastro;
+* Informação de um pedido em andamento;
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<h2>🥗 Imagens do app </h2>
 
-### `npm test`
+![LOGIN](https://user-images.githubusercontent.com/86529848/168507233-a40fd0c9-be0d-4b54-b34c-dcb54999e9cf.png)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![HOME](https://user-images.githubusercontent.com/86529848/168507184-a6cf6a53-d364-4b25-b10e-ffe367cc0ed5.png)
 
-### `npm run build`
+![CART](https://user-images.githubusercontent.com/86529848/168507246-f3c89c8f-8775-41af-80e5-3653de649f2a.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![PROFILE](https://user-images.githubusercontent.com/86529848/168507256-30af01a8-d2b3-4d5d-93a4-c5460814290a.png)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h2>👨‍💻👩‍💻 Desenvolvedores</h2>
 
-### `npm run eject`
+<table> 
+<tr>
+ 
+<td align="center"><a href="https://github.com/tiagohennig"><img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/86529848?v=4" width="100px" alt=""/>
+ <br />
+ <sub><b>Tiago Hennig</b></sub></a> <a href="https://github.com/tiagohennig"></a></td>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ <td align="center"><a href="https://github.com/Aversii"><img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/92393933?v=4" width="100px" alt=""/>
+ <br />
+ <sub><b>Lucas Aversi</b></sub></a> <a href="https://github.com/Aversii"></a></td>
+  
+<td align="center"><a href="https://github.com/carol-kazue"><img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/93162137?v=4" width="100px" alt=""/>
+ <br />
+ <sub><b>Ana Carolina Kazue Inada</b></sub></a> <a href="https://github.com/carol-kazue"></a></td>
+  
+ <td align="center"><a href="https://github.com/AlexBitenc0urt"><img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/93138933?v=4" width="100px" alt=""/>
+ <br />
+ <sub><b>Alex Bitencourt Pita</b></sub></a> <a href="https://github.com/AlexBitenc0urt"></a></td>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ <td align="center"><a href="https://github.com/darkrigo"><img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/89092703?v=4" width="100px" alt=""/>
+ <br />
+ <sub><b>Diego dos Santos Rigo</b></sub></a> <a href="https://github.com/darkrigo"></a></td>
+ 
+</tr>
+  
+</table>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
