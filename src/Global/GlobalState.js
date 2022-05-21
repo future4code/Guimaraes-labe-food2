@@ -3,7 +3,6 @@ import React,
 import axios from 'axios'
 import { BASE_URL } from '../Constants/BASE_URL'
 import { GlobalStateContext } from './GlobalStateContext'
-import { useNavigate } from 'react-router-dom';
 
 const GlobalState = (props) => {
 
@@ -17,9 +16,12 @@ const GlobalState = (props) => {
   const [order, setOrder] = useState([])
   const [history,setHistory]=useState([])
   useEffect(()=>{
-    getProfile()
     getRestaurants()
   },[])
+
+  useEffect(()=>{
+    getProfile()
+  },[profile])
 
   useEffect(()=>{
     console.log(cartBasket)
@@ -84,25 +86,7 @@ const GlobalState = (props) => {
       console.log(error)
     })
   }
-  const placeOrder=(paymentMethod)=>{
-    const token = localStorage.getItem("token")
-    const body={
-      products: cartBasket.map((item)=>{
-        const { id,quantity }= item;
-        return { id, quantity}
-      }),
-      paymentMethod
-    }
-    axios.post(`${BASE_URL}restaurants/${restDetail.id}/order`, 
-    body,
-    {headers: {
-      auth: token,
-    }}).then((res)=>{
-      console.log(res)
-    }).catch((error)=>{
-      console.log(error)
-    })
-  }
+
   const orderHistory=()=>{
     const token = localStorage.getItem("token")
     axios.get(`${BASE_URL}orders/history`,
@@ -136,7 +120,7 @@ const GlobalState = (props) => {
      setValueNames,
      namesValue,
      category,
-     placeOrder,
+     
 
     setCategory,
      setProfile,
