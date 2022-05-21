@@ -38,7 +38,6 @@ const ProfileEditData = () => {
     .then((res) => {
       alert('Seus dados pessoais foram alterados com sucesso!');
       navigate('/profile');
-      reload()
     })
     .catch((err) => {
       alert(err.response.data);

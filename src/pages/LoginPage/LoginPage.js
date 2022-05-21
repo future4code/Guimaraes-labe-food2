@@ -26,7 +26,7 @@ const login = () => {
       localStorage.setItem('token', res.data.token)
       navigate('/home')
     })
-    .catch((err) => {alert(err.response.data.message)}
+    .catch((err) => {console.log(err.response.data.message)}
     )
     
 }

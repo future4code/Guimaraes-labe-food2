@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import { AdressArea, EmptyCart, FormaPagamento, FreteArea, LineSpan,
     NavBar, TextAdressH4, TextAdressP, TotalPay,ButtonConfirm, BtContainer, FooterCart  } from "./style";
 import { goToCart, goToHome, goToProfile, goToProfileEditAdress, goToProfileEditData } from "../../Routes/coordinator";
@@ -20,11 +20,39 @@ import FormLabel from '@mui/material/FormLabel';
 import { GlobalStateContext } from "../../Global/GlobalStateContext";
 import back from '../../img/back.png'
 import { TitleDiv,BackImg,Subtitle } from "../ProfileEditAdress/style"; 
+import { BASE_URL } from "../../Constants/BASE_URL";
+import axios from "axios";
 
 export const Cart = () => {
-    const {restDetail,profile,placeOrder,cartBasket} = useContext(GlobalStateContext)
+    const {restDetail,profile,cartBasket} = useContext(GlobalStateContext)
     const [paymentMethod,setPaymentMethod]=useState()
     const navigate = useNavigate()
+
+    useEffect(()=>{
+        placeOrder()
+      },[paymentMethod])
+
+    const placeOrder=(paymentMethod)=>{
+        const token = localStorage.getItem("token")
+        const body={
+          products: cartBasket.map((item)=>{
+            const { id,quantity }= item;
+            return { id, quantity}
+          }),
+          paymentMethod
+        }
+        axios.post(`${BASE_URL}restaurants/${restDetail.id}/order`, 
+        body,
+        {headers: {
+          auth: token,
+        }}).then((res)=>{
+            alert('Seu pedido foi confirmado!');
+            navigate('/home');
+          
+        }).catch((error)=>{
+          console.log(error)
+        })
+      }
 
     const reload = () => {
         window.location.reload()
